@@ -22,7 +22,7 @@ router.get("/new", (req, res) => {
 })
 
 router.post("/new", (req, res) => {
-    Person.create(req.params.body, (err, data)=>{
+    Person.create(req.body, (err, data)=>{
         if(err){
             console.log(err);
         } else {

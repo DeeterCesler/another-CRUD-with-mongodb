@@ -46,4 +46,16 @@ router.delete("/:id/delete", (req, res) => {
     })
 });
 
+router.get("/:id", (req, res) => {
+    Person.findById(req.params.id, (err, data)=> {
+        if(err){
+            console.log(err);
+        } else {
+            res.render("show.ejs", {
+                person: data
+            });
+        }
+    })
+});
+
 module.exports = router;

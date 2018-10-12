@@ -15,7 +15,7 @@ require("./db/db");
 console.log("server live");
 
 // routing via controller
-app.use("/10-12", appController);
+app.use("/", appController);
 
 app.listen(3000, () => {
     console.log("this bish runnin")

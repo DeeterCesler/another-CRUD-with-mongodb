@@ -33,6 +33,30 @@ router.post("/new", (req, res) => {
     })
 });
 
+router.get("/:id/edit", (req, res) => {
+    Person.findById(req.params.id, (err, data)=> {
+        if(err){
+            console.log(err);
+        } else {
+            res.render("edit.ejs", {
+                person: data
+            });
+        }
+    })
+});
+
+router.put("/:id", (req, res) => {
+    Person.findByIdAndUpdate(req.params.id, req.body, (err, data)=>{
+        if(err){
+            console.log(err);
+        } else {
+            console.log(data);
+            // redirect to default page
+            res.redirect("/");
+        }
+    })
+});
+
 router.delete("/:id/delete", (req, res) => {
     console.log(req.params.id, ' id in delete route');
 
